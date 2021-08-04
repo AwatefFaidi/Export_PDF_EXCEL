@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="/webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet" />
+<script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+<H2>List of Students </H2>
+<a th:href="@{/users/export/pdf}">Export to PDF</a>
+<a th:href="@{/users/export/excel}">Export to Excel</a>
+<table class="table table-stripped">
+<thead>
+<tr>
+<td>Id</td>
+<td>Name</td>
+<td>Email</td>
+<td>Role</td>
+<td>Enabled</td>
+</tr>
+</thead>
+<tbody>
+<th:block th:each="user:${userlist}">
+<tr>
+<td >[[${user.Id}]]</td>
+<td> [[${user.fullName}]]</td>
+<td> [[${user.email}]]</td>
+
+<td>  [[${user.roles}]]</td>
+
+<td >[[${user.enabled}]]</td>
+</tr>
+</th:block>
+</tbody>
+</table>
+</body>
+</html>
